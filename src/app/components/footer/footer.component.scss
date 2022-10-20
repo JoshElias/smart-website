@@ -1,0 +1,134 @@
+@import "../../../styles/styles.scss";
+
+
+:host {
+    @extend %flexbox;
+    flex-direction: column;
+
+    background-color: $off-black;
+    border-top: 10px solid $smart-colour;
+
+    @extend %header-text;
+    color: $light-grey;
+    z-index: 1;
+}
+
+
+.bottom-nav { 
+    @extend %clear-margin;
+    list-style-type: none;
+    width: 100%;
+    height: 115px;
+    @extend %flexbox;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    background: #2A2B2A;
+    font-size: 0.9rem;
+}
+.bottom-nav li {
+    margin: 0px 20px 0px 20px;
+}
+.bottom-nav > :first-child { margin-left: 20px }
+.bottom-nav > :last-child { margin-right: 20px; }
+
+.bottom-nav a {
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: $light-grey;
+
+    &:before,
+    &:after {
+        bottom: 1px;
+    }
+}
+
+
+.bounce {
+    cursor: pointer;
+    position: absolute;
+    right: 5px
+  }
+
+  .bounce:hover {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-25px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+
+@include breakpoint($medium_screen) {
+    .bounce {
+        right: 30px;
+        
+    }
+
+    .bounce i {
+        font-size: 2.2rem;
+    }
+}
+
+@include breakpoint($small_screen) {
+    .bottom-nav {
+        flex-wrap: nowrap;
+        height: 85px;
+        font-size: 1rem;
+    }
+
+    .bottom-nav a {
+        padding-bottom: 15px;
+    
+        &:before,
+        &:after {
+            bottom: 2px;
+        }
+    }
+}
+
+@include breakpoint($large_screen) {
+    .bottom-nav {
+        font-size: 1.1rem;
+    }
+
+    .bottom-nav li {
+        margin: 0px 20px 0px 20px;
+    }
+}
+
+li {
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+
+
+
+
+.copyright {
+    @extend %flexbox;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    font-size: 0.7rem;
+}
+
+
+@include breakpoint($large_screen) {
+    .copyright {
+        font-size: 0.8rem;
+    }
+}

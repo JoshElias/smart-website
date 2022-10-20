@@ -1,0 +1,54 @@
+<div class="pricing-splash">
+  <img src="{{pricingSplash}}">
+  <div class="splash-text">
+    <h1>Set up a VM,
+      pick a plan later</h1>
+    <h2>Try SMART MRP free inside a virtual machine for 30 days</h2>
+    <button class="smart-button">Start your free trial</button>
+  </div>
+</div>
+
+<div class="sidebar-left">
+</div>
+
+<div class="pricing-table">
+
+  <div class="version-select" *ngIf="activeVersionIndex !== -1">
+    <button *ngFor="let versionName of productVersionNames; let i = index" [class.selectedVersion]="isActiveVersion(i)" (click)=showFeatureVersion(i)>
+      {{versionName}}
+    </button>
+  </div>
+
+  <div class="version-select-mobile" *ngIf="activeVersionIndex !== -1">
+    <button class="smart-button" *ngFor="let purchaseLink of productPurchaseLinks; let i = index" 
+      [class.selectedVersion]="isActiveVersion(i)" (click)="openModal(purchaseLink)">
+      Buy Now
+    </button>
+  </div>
+
+  <div class="version-display" *ngIf="activeVersionIndex === -1">
+    <h1>SMART Version</h1>
+    <div class="version-names">
+        <h2 *ngFor="let versionName of productVersionNames">
+            {{versionName}}
+        </h2>
+    </div>
+  </div>
+
+  <div class="version-purchase" *ngIf="activeVersionIndex === -1">
+    <div class="purchase-links">
+      <button class="smart-button" *ngFor="let purchaseLink of productPurchaseLinks; let i = index" 
+      [class.selectedVersion]="isActiveVersion(i)"
+      (click)="openModal(purchaseLink)">
+        Buy Now
+      </button>
+    </div>
+  </div>
+
+  <feature-section *ngFor="let featureSection of featureSections" [activeVersionIndex]="activeVersionIndex" [featureSection]="featureSection">
+  </feature-section>
+
+</div>
+
+<div class="sidebar-right">
+</div>

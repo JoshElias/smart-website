@@ -1,0 +1,210 @@
+@import "../../../styles/styles.scss";
+
+:host {
+    @extend %header-text;
+}
+
+h1,
+h2 {
+    @extend %flexbox;
+    @extend %clear-margin;
+    color: $light-black;
+    padding: 0 0 0 10px;
+
+    align-items: center;
+
+    border-style: solid;
+    border-color: #c3c3c3;
+    border-width: 1px 1px 0px 1px;    
+}
+
+@include breakpoint($small_screen) {
+    h1,
+    h2 {
+        padding: 0 0 0 30px;
+    }
+}
+
+
+h1 {
+    
+    background: $smart-colour;
+    height: 50px;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+}
+
+
+h2 {
+    background: $light-grey;
+    height: 45px;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+
+ul {
+    @extend %clear-margin;
+    list-style-type: none;
+    @extend %flexbox;
+    color: $light-black;
+    box-sizing: border-box;
+}
+
+ul:hover {
+    background: $smart-colour;
+
+    h3 {
+        font-weight: 900;
+    }
+}
+
+
+h3 {
+    @extend %clear-margin;
+    @extend %flexbox;
+    align-items: center;
+    width: 50%;
+    border-style: solid;
+    border-color: #c3c3c3;
+    border-width: 1px 1px 0px 1px;    
+    font-size: 0.85rem;
+    font-weight: 300;
+    padding: 0 10px 0 10px;
+}
+
+@include breakpoint($small_screen) {
+    h3 {
+        font-size: 0.95rem;
+        padding: 0 30px 0 30px;
+    }
+}
+
+@include breakpoint($medium_screen) {
+    h3 {
+        padding: 0 30px 0px 30px;
+        width: 40%;
+    }
+}
+
+.feature-values {
+    @extend %flexbox;
+    width: 50%;
+}
+
+@include breakpoint($medium_screen) {
+    .feature-values {
+        width: 60%;
+    }
+}
+
+li {
+    @extend %flexbox;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-style: solid;
+    border-color: #c3c3c3;
+    border-width: 1px  1px 0px 0px;
+    font-size: 0.8rem;
+}
+
+
+@include breakpoint($medium_screen) {
+    li {
+        width: calc(100%/3);
+    }
+}
+
+
+:host ::ng-deep span {
+    font-size: 0.9rem;
+}
+
+
+:host ::ng-deep div.compound-value {
+    @extend %flexbox;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+:host ::ng-deep div.compound-value span {
+    font-size: 0.6rem;
+    width: 70px;
+    margin-left: 10px;
+}
+
+@include breakpoint($small_screen) {
+    :host ::ng-deep div.compound-value span {
+        width: auto;
+        margin-left: 20px;
+        font-size: 0.7rem;
+    }
+}
+
+@include breakpoint($medium_screen) {
+    :host ::ng-deep div.compound-value span {
+        font-size: 0.6rem;
+        width: 80px;
+        margin-left: 10px;
+    }
+}
+
+@include breakpoint($large_screen) {
+    :host ::ng-deep div.compound-value span {
+        margin-left: 20px;
+        font-size: 0.7rem;
+    }
+}
+
+@include breakpoint($extra_large_screen) {
+    :host ::ng-deep div.compound-value span {
+        width: auto;
+    }
+}
+
+
+:host ::ng-deep div.compound-value span.value-string {
+    height: 100%;
+    @extend %flexbox;
+    align-items: center;
+    max-width: 144px;
+}
+:host ::ng-deep span.value-string {
+    max-width: 144px;
+}
+
+.tooltip {
+    margin-left: 7px;
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip .tooltip-content {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    z-index: 9999;
+    background: $off-black;
+    color: whitesmoke;
+    padding: 10px 5px 10px 5px;
+    @extend %header-text;
+    border-radius: 2px;
+    font-size: 1rem;
+
+    width: 150px;
+    text-align: center;
+
+    opacity: 0;
+    -o-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -webkit-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;    
+}
+
+.tooltip .tooltip-content.active {
+    right:-20px;
+    opacity:1;
+}

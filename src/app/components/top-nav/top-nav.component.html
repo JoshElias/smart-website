@@ -1,0 +1,35 @@
+<div class="logo-wrapper">
+  <i class="fa fa-bars fa-2x" aria-hidden="true"
+     (click)="topNavService.toggleNavMenu()"></i>
+  <a (click)="navigate('/home')" class="img-wrapper">
+      <img src="{{fullSmartLogo}}">
+  </a>
+</div>
+
+
+<ul class="nav-list smart-nav-list">
+    <li><a routerLink="/features">Features</a></li>
+    <li><a routerLink="/pricing">Pricing</a></li>
+    <li><a routerLink="/faq">FAQ</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+</ul>
+
+
+<div class="sign-in">
+  <button class="smart-button">Sign In</button>
+</div>
+
+
+
+<div class="nav-menu" [style.display]="navMenuDisplay">
+  <div class="nav-menu-header">
+    <i class="fa fa-times fa-2x" aria-hidden="true"
+        (click)="topNavService.closeNavMenu()"></i>
+  </div>
+  <ul class="nav-menu-list smart-nav-list">
+    <li><a (click)="navigate('/features')">Features</a></li>
+    <li><a (click)="navigate('/pricing')">Pricing</a></li>
+    <li><a (click)="navigate('/faq')">FAQ</a></li>
+    <li><a (click)="navigate('/contact')">Contact</a></li>
+  </ul>
+</div>

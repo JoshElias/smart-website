@@ -1,0 +1,26 @@
+<h1 *ngIf="featureSection.mainHeader">{{featureSection.mainHeader}}</h1>
+<h2 *ngIf="featureSection.secondaryHeader">{{featureSection.secondaryHeader}}</h2>
+
+<ul *ngFor="let feature of featureSection.features; let i = index">
+    <h3 [style.height.px]="getCellHeight(feature.name)">
+        {{feature.name}}
+        <i *ngIf="feature.annotation" 
+            class="fa fa-info-circle tooltip" aria-hidden="true" 
+            (click)="toggleAnnotation(i)">
+            <span class="tooltip-content" 
+                [class.active]="isAnnotationVisible(i)">{{feature.annotation}}</span>
+        </i>
+    </h3>
+    <div class="feature-values">
+        <ng-container *ngIf="activeVersionIndex === -1">
+            <li *ngFor="let versionValue of feature.versionValues"
+                [innerHtml]="getValueInHTML(versionValue)">
+            </li>
+        </ng-container>
+        <ng-container *ngIf="activeVersionIndex !== -1">
+            <li [innerHtml]="getValueInHTML(feature.versionValues[activeVersionIndex])">
+            </li> 
+        </ng-container>
+
+    </div>
+</ul>

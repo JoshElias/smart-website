@@ -1,0 +1,226 @@
+@import "../../../styles/styles.scss";
+
+
+:host {
+  @extend %flexbox;
+
+  @extend %header-text;
+  color: whitesmoke;
+}
+
+:host * {
+  height: 100%;
+}
+
+
+//// LOGO /////
+.logo-wrapper {
+  position: absolute;
+  left: 0;
+  margin-left: 1px;
+  float: left;
+
+  @extend %flexbox;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: $top-nav-height;
+
+  transition: margin-left 0.3s ease-in-out;
+}
+
+@include breakpoint($small_screen) {
+  .logo-wrapper {
+    margin-left: 26px;
+  }
+}
+
+@include breakpoint($medium_screen) {
+  .logo-wrapper {
+    margin-left: -34px;
+  }
+}
+
+
+.logo-wrapper a {
+  @extend %flexbox;
+  align-items: center;
+  cursor: pointer;
+  width: 140px;
+  z-index: 100;
+  margin-left: 17px;
+}
+
+.logo-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+@include breakpoint($small_screen) {
+  .logo-wrapper a {
+    width: 160px;
+    margin-left: 30px;
+  }
+}
+
+
+.logo-wrapper i {
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  z-index: 100;
+}
+
+.logo-wrapper i:hover {
+  transition: color 0.2s ease-in;
+  color: $smart-colour;
+}
+
+
+///// Nav List /////
+
+.nav-list {
+  display: none;
+  width: auto;
+  list-style-type: none;
+  @extend %clear-margin;
+  
+  margin-left: 200px;
+
+  font-size: 1.1rem;
+  @extend %white-font-shadow;
+}
+
+@include breakpoint($medium_screen) {
+  .nav-list {
+    display: inline-block;
+  }
+}
+
+@include breakpoint($large_screen) {
+  .nav-list {
+    display: inline-block;
+    font-size: 1.3rem;
+  }
+}
+
+
+
+:host .nav-list li {
+  display: inline-block;
+  height: 100%;
+  width: auto;
+  margin: 0 7px 0 7px;
+  line-height: $top-nav-height;
+}
+
+:host .nav-list a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+
+///// Sign In //////
+
+
+.sign-in {
+  position: absolute;
+  right: 0;
+  float: none;
+  height: $top-nav-height;
+
+  @extend %flexbox;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin-right: 20px;
+}
+
+@include breakpoint($small_screen) {
+  .sign-in {
+    margin-right: 30px;
+  }
+}
+
+.sign-in button {  
+  padding: 0.8em 0.8em;
+  height: 30px;
+  font-size: 1rem;
+  line-height: 0;
+  @extend %white-font-shadow;
+}
+
+@include breakpoint($medium_screen) {
+  .sign-in button {
+    padding: 0.4em 0.8em;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+}
+
+
+
+:host .sign-in span {
+  height: auto;
+}
+
+
+/// Nav Menu
+
+.nav-menu {
+  position: absolute;
+  display: grid;
+  grid-template-rows: 80px auto;
+  grid-template-areas:  "nav-menu-header" 
+                        "nav-menu-list";
+
+  top: 0;
+  left: 0;
+  width: calc(100% - 40px);
+  height: 100%;
+  padding: 0px 20px 0px 20px;
+  text-shadow: 2px 2px 4px #000000;
+
+
+  background: $off-black;
+}
+
+
+
+.nav-menu-header {
+  grid-area: nav-menu-header;
+  @extend %flexbox;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.nav-menu-header i {
+  cursor: pointer;
+  height: auto;
+  width: auto;
+}
+
+.nav-menu-header i:hover {
+  transition: color 0.2s ease-in;
+  color: $smart-colour;
+}
+
+.nav-menu-list {
+  grid-area: nav-menu-list;
+  @extend %clear-margin;
+  @extend %flexbox;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+
+  @extend %header-text;
+  font-size: 1.6rem;
+  margin-top: 30px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.nav-menu-list li {
+  height: 60px;
+  width: auto;
+  text-shadow: 2px 2px 4px #000000;
+}

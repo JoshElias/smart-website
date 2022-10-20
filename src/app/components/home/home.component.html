@@ -1,0 +1,25 @@
+<div class="video-splash">
+  <div class="splash-text">
+    <img src="{{basicSmartLogo}}">
+    <h3>Manufacturing Made Easy</h3>
+    <button routerLink="/features" class="learn-more-button">Learn More</button>
+  </div>
+
+  <div #videoWrapper class="video-wrapper">
+    <iframe src='https://player.vimeo.com/video/245243813?background=1' frameborder='0' webkitAllowFullScreen mozallowfullscreen
+      allowFullScreen></iframe>
+  </div>
+</div>
+<div class="sidebar-left">
+
+</div>
+<div class="intro-message">
+  <h1>Manufacturing - Resource - Planning</h1>
+  <h3>Shop Management and Resource Tool</h3>
+</div>
+<div class="feature-panels">
+  <feature-panel *ngFor="let feature of features" [feature]="feature"></feature-panel>
+</div>
+<div class="sidebar-right">
+
+</div>

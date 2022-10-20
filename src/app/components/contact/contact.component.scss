@@ -1,0 +1,261 @@
+@import "../../../styles/styles.scss";
+
+:host h1,
+:host h2,
+:host h3,
+:host p {
+    @extend %clear-margin;
+}
+
+:host {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 300px auto 300px auto;
+  grid-template-areas:  "contact-splash" 
+                        "tour-section" 
+                        "map-section" 
+                        "contact-info";
+  margin-top: (-$top-nav-height);
+}
+
+@include breakpoint($small_screen) {
+   :host {
+        grid-template-rows: 300px auto 400px auto;
+  }
+}
+
+@include breakpoint($medium_screen) {
+   :host {
+    grid-template-rows: 400px auto auto;
+    grid-template-columns: auto 400px 400px auto;
+    grid-template-areas:    "contact-splash contact-splash contact-splash contact-splash" 
+                            "sidebar-left tour-section map-section sidebar-right" 
+                            "sidebar-left contact-info map-section sidebar-right";
+  }
+}
+
+@include breakpoint($large_screen) {
+   :host {
+    grid-template-columns: auto 500px 500px auto;
+  }
+}
+
+@include breakpoint($extra_large_screen) {
+   :host {
+    grid-template-columns: auto 650px 550px auto;
+  }
+}
+
+.contact-splash {
+  grid-area: contact-splash;
+  @extend %flexbox;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 0 0 5px 0;
+  box-sizing: border-box;
+  background: black;
+  z-index: -2;
+}
+
+.contact-splash img {
+  position: fixed;
+  width: 400%;
+  margin-left: -150px;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+@include breakpoint($small_screen) {
+  .contact-splash img {
+    margin-left: -300px;
+    width: 330%;
+  }
+}
+
+@include breakpoint($medium_screen) {
+  .contact-splash img {
+    margin-left: 0;
+    width: 210%;
+  }
+}
+
+@include breakpoint($large_screen) {
+  .contact-splash img {
+    width: 160%;
+  }
+}
+
+@include breakpoint($extra_large_screen) {
+    .contact-splash img {
+      width: 130%;
+    }
+  }
+
+.contact-splash h1 {
+  @extend %clear-margin;
+  @extend %header-text;
+  font-size: 2.8rem;
+  text-shadow: 2px 2px 4px #000000;
+  position: absolute;
+  z-index: 25;
+  margin-top: 20px;
+}
+
+@include breakpoint($small_screen) {
+  .contact-splash h1 {
+    margin-top: 40px;
+    font-size: 3.7rem;
+  }
+}
+
+@include breakpoint($medium_screen) {
+    .contact-splash h1 {
+      font-size: 4rem;
+    }
+  }
+
+@include breakpoint($large_screen) {
+  .contact-splash h1 {
+    font-size: 4.5rem;
+  }
+}
+
+@include breakpoint($extra_large_screen) {
+  .contact-splash h1 {
+    font-size: 5rem;
+  }
+}
+
+.tour-section {
+  grid-area: tour-section;
+  @extend %header-text;
+  background: whitesmoke;
+  color: $off-black;
+  padding: 40px 20px 20px 20px;
+
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 2.5px 0 0 0;
+}
+
+@include breakpoint($small_screen) {
+    .tour-section {
+        padding: 60px 30px 30px 30px;
+    }
+}
+
+.tour-section h2 {
+    margin-bottom: 20px;
+}
+
+.map-section {
+  grid-area: map-section;
+  background: whitesmoke;
+  padding: 40px 20px 40px 20px;
+}
+
+@include breakpoint($small_screen) {
+    .map-section {
+        padding: 60px 30px 60px 30px;
+    }
+}
+
+@include breakpoint($medium_screen) {
+  .map-section {
+    border-style: solid;
+    border-color: $off-black;
+    border-width: 2.5px 0 0 0;
+  }
+}
+
+.map-section iframe {
+    border-color: $off-black !important;
+    border-width: 3px !important;
+    border-style: solid !important;
+    background: black;
+}
+
+.contact-info {
+  grid-area: contact-info;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:  "address phone" 
+                        "address email";
+  background: whitesmoke;
+
+  @extend %header-text;
+  color: $off-black;
+  padding: 20px 20px 40px 20px;
+}
+
+.address p,
+.phone span,
+.email span {
+    font-size: 0.9rem;
+}
+
+@include breakpoint($small_screen) {
+    .contact-info {
+        padding: 30px 30px 60px 30px;
+    }
+}
+
+
+@include breakpoint($small_screen) {
+    .address p,
+    .phone span,
+    .email span {
+        font-size: 1rem;
+    }
+}
+
+
+.address {
+  grid-area: address;
+}
+
+.address h3 {
+    margin-bottom: 10px;
+}
+
+.address p {
+  white-space: pre-line;
+}
+
+.phone {
+  grid-area: phone;
+  margin-bottom: 10px;
+}
+
+.phone h3 {
+    margin-bottom: 5px;
+}
+
+.email {
+  grid-area: email;
+}
+
+.email h3 {
+    margin-bottom: 5px;
+}
+
+.sidebar-left {
+  grid-area: sidebar-left;
+  background: whitesmoke;
+
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 2.5px 0 0 0;
+}
+
+.sidebar-right {
+  grid-area: sidebar-right;
+  background: whitesmoke;
+
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 2.5px 0 0 0;
+}

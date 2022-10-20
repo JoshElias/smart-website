@@ -1,0 +1,407 @@
+@import "../../../styles/styles.scss";
+
+
+:host {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 400px auto;
+  grid-template-areas: "pricing-splash" "pricing-table";
+  margin-top: (-$top-nav-height);
+}
+
+@include breakpoint($medium_screen) {
+   :host {
+    grid-template-columns: auto 800px auto;
+    grid-template-areas: "pricing-splash pricing-splash pricing-splash" 
+                        "sidebar-left pricing-table sidebar-right";
+  }
+}
+
+@include breakpoint($large_screen) {
+   :host {
+    grid-template-columns: auto 1000px auto;
+    grid-template-rows: 400px auto;
+  }
+}
+
+@include breakpoint($extra_large_screen) {
+   :host {
+    grid-template-columns: auto 1200px auto;
+  }
+}
+
+.pricing-splash {
+  grid-area: pricing-splash;
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 0 0 5px 0;
+  box-sizing: border-box;
+  background: black;
+  z-index: 1;
+}
+
+.pricing-splash img {
+  z-index: 10;
+  position: fixed;
+  width: 260%;
+  height: auto;
+  margin-top: -70px;
+  margin-left: -40px;
+  opacity: 0.8;
+}
+
+@include breakpoint($small_screen) {
+  .pricing-splash img {
+    width: 180%;
+    margin-top: -130px;
+  }
+}
+
+@include breakpoint($medium_screen) {
+  .pricing-splash img {
+    width: 150%;
+    margin-top: -160px;
+  }
+}
+
+@include breakpoint($large_screen) {
+  .pricing-splash img {
+    width: 120%;
+    margin-top: -150px;
+  }
+}
+
+@include breakpoint($extra_large_screen) {
+  .pricing-splash img {
+    width: 100%;
+    margin-left: 0;
+    margin-top: -220px;
+  }
+}
+
+.splash-text {
+  @extend %flexbox;
+  @extend %header-text;
+  position: absolute;
+  z-index: 10;
+  width: calc(100% - 40px);
+  height: auto;
+  margin-top: 110px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+@include breakpoint($small_screen) {
+  .splash-text {
+    padding: 30px;
+  }
+}
+
+@include breakpoint($medium_screen) {
+  .splash-text {
+    margin-top: 130px;
+    align-items: center;
+  }
+}
+
+.splash-text h1 {
+  @extend %clear-margin;
+  white-space: pre-line;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px #000000;
+
+}
+
+@include breakpoint($small_screen) {
+  .splash-text h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@include breakpoint($medium_screen) {
+  .splash-text h1 {
+    white-space: normal;
+    font-size: 3rem;
+  }
+}
+
+@include breakpoint($large_screen) {
+  .splash-text h1 {
+    font-size: 3.5rem;
+  }
+}
+
+.splash-text h2 {
+  @extend %clear-margin;
+  font-size: 0.9rem;
+  text-shadow: 2px 2px 4px #000000;
+  color: $light-grey;
+  margin: 10px 0 30px 0;
+}
+
+@include breakpoint($small_screen) {
+  .splash-text h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@include breakpoint($medium_screen) {
+  .splash-text h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.splash-text button {
+  width: 180px;
+  align-self: center;
+  font-size: 1rem;
+  padding: 0;
+}
+
+@include breakpoint($medium_screen) {
+  .splash-text button {
+    font-size: 1.2rem;
+    width: auto;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+.sidebar-left {
+  grid-area: sidebar-left;
+  z-index: 1;
+  background: whitesmoke;
+
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 2.5px 0 0 0;
+}
+
+$cell-height: 30px;
+$main-header-height: 50px;
+$secondary-header-height: 40px;
+.pricing-table {
+  grid-area: pricing-table;
+  z-index: 1;
+  padding: 40px 20px 40px 20px;
+  @extend %flexbox;
+  flex-direction: column;
+  background: whitesmoke;
+
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 2.5px 0 0 0;
+}
+
+@include breakpoint($small_screen) {
+  .pricing-table {
+    padding: 60px 30px 60px 30px;
+  }
+}
+
+@include breakpoint($large_screen) {
+  .pricing-table {
+    padding: 60px
+  }
+}
+
+.version-select {
+  grid-area: version-select;
+  @extend %flexbox;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background: $light-grey;
+  border-style: solid;
+  border-color: #c3c3c3;
+  border-width: 0px 1px 0px 0px;
+  box-sizing: border-box;
+}
+
+.version-select button {
+  @extend %header-text;
+  @extend %clear-margin;
+  color: $smart-colour;
+  background: $off-black;
+  font-weight: 400;
+  cursor: pointer;
+  width: calc(100%/3);
+  height: 100%;
+  font-size: 1.1rem;
+  border-style: solid;
+  border-color: #c3c3c3;
+  border-width: 1px 0px 1px 1px;
+  box-sizing: border-box;
+}
+
+@include breakpoint($small_screen) {
+  .version-select button {
+    font-size: 1.2rem;
+  }
+}
+
+.version-select button.selectedVersion {
+  background: $smart-colour;
+  color: $off-black;
+}
+
+.version-select button:active,
+.version-select button:focus {
+  outline: none;
+}
+
+
+.version-purchase {
+  @extend %flexbox;
+  @extend %header-text;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.version-purchase .purchase-links {
+  width: calc(60% - 32px);
+}
+
+.purchase-links button { 
+  width: calc(100% / 3 - 20px);
+  margin: 0 10px 0 10px;
+  text-shadow: none;
+  font-size: 1rem;
+}
+
+@include breakpoint($large_screen) {
+  .purchase-links button { 
+    width: calc(100% / 3 - 20px);
+    font-size: 1.2rem;
+  }
+}
+
+@include breakpoint($extra_large_screen) {
+  .purchase-links button { 
+    width: calc(100% / 3 - 20px);
+    font-size: 1.3rem;
+  }
+}
+
+.purchase-links button:hover { 
+  color: $off-black;
+  border-color: $off-black;
+  box-shadow: 0 0.5em 0.5em -0.4em $off-black;
+}
+
+.version-select-mobile {
+  @extend %flexbox;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.version-select-mobile .smart-button {
+  @extend %header-text;
+  font-weight: bold;
+  border-color: $smart-colour;
+  color: $smart-colour;
+  display: none;
+  width: 150px;
+  height: 50px;
+  font-size: 1.4rem;
+}
+
+.version-select-mobile .smart-button:hover {
+  color: $off-black;
+  border-color: $off-black;
+  box-shadow: 0 0.5em 0.5em -0.4em $off-black;
+}
+
+
+.version-select-mobile .smart-button.selectedVersion {
+  display: block;
+}
+
+.version-display {
+  @extend %flexbox;
+  @extend %header-text;
+  color: $off-black;
+  height: 50px;
+  border-style: solid;
+  border-color: #c3c3c3;
+  border-width: 1px 1px 1px 1px;
+  box-sizing: border-box;
+  background: $off-black;
+  color: $smart-colour;
+}
+
+.version-display h1 {
+  @extend %clear-margin;
+  @extend %flexbox;
+  align-items: center;
+  justify-content: center;
+  width: calc(40% + 60px);
+  font-size: 1.6rem;
+  border-style: solid;
+  border-color: #c3c3c3;
+  border-width: 0px 1px 0px 0px;
+  box-sizing: border-box;
+}
+
+.version-names {
+  @extend %flexbox;
+  width: 60%;
+}
+
+.version-names h2 {
+  @extend %clear-margin;
+  width: calc(100%/3);
+  @extend %flexbox;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border-style: solid;
+  border-color: #c3c3c3;
+  border-width: 0px 1px 0px 0px;
+  box-sizing: border-box;
+}
+
+@include breakpoint($large_screen) {
+  .version-names h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.version-names h2:last-child {
+  border-width: 0px 0px 0px 0px;
+}
+
+.pricing-title {
+  grid-area: pricing-title;
+  @extend %flexbox;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.version-features {
+  grid-area: version-features;
+  display: none;
+  flex-direction: column;
+}
+
+feature-section {
+  margin-top: 30px;
+  border-style: solid;
+  border-color: #c3c3c3;
+  border-width: 0 0 1px 0;
+}
+
+feature-section span.value-string {
+  font-size: 0.9rem;
+  max-width: 144px;
+}
+
+.sidebar-right {
+  grid-area: sidebar-right;
+  z-index: 1;
+  background: whitesmoke;
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 2.5px 0 0 0;
+}

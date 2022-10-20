@@ -1,0 +1,311 @@
+@import "../../../styles/styles.scss";
+
+
+:host {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 300px 60px auto;
+  grid-template-areas:  "faq-splash"
+                        "faq-collapse"
+                        "faq-results";
+  margin-top: (-$top-nav-height);
+}
+
+@include breakpoint($small_screen) {
+   :host {
+    grid-template-rows: 400px 60px auto;
+    grid-template-areas:  "faq-splash"
+                          "faq-collapse"
+                          "faq-results";
+  }
+}
+
+@include breakpoint($medium_screen) {
+   :host {
+    grid-template-columns: auto 800px auto;
+    grid-template-areas:  "faq-splash faq-splash faq-splash"
+                          "sidebar-left faq-collapse sidebar-right" 
+                          "sidebar-left faq-results sidebar-right";
+  }
+}
+
+@include breakpoint($large_screen) {
+   :host {
+    grid-template-columns: auto 1000px auto;
+  }
+}
+
+@include breakpoint($extra_large_screen) {
+   :host {
+    grid-template-columns: auto 1200px auto;
+  }
+}
+
+.faq-splash {
+  grid-area: faq-splash;
+  @extend %flexbox;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: black;
+  z-index: 1;
+}
+
+.faq-splash img {
+  position: fixed;
+  width: 270%;
+  opacity: 0.8;
+}
+
+@include breakpoint($small_screen) {
+  .faq-splash img {
+    width: 160%;
+  }
+}
+
+@include breakpoint($medium_screen) {
+  .faq-splash img {
+    width: 110%;
+  }
+}
+
+@include breakpoint($large_screen) {
+  .faq-splash img {
+    margin-top: 50px;
+    width: 100%;
+  }
+}
+
+.faq-splash .splash-text {
+  position: absolute;
+  @extend %flexbox;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  z-index: 25;
+  margin-top: 20px;
+}
+
+@include breakpoint($small_screen) {
+  .faq-splash .splash-text {
+    margin-top: 40px;
+  }
+}
+
+.splash-text h1 {
+  @extend %clear-margin;
+  @extend %header-text;
+  font-size: 2.1rem;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+@include breakpoint($small_screen) {
+  .splash-text h1 {
+    font-size: 3.2rem;
+  }
+}
+
+@include breakpoint($large_screen) {
+  .splash-text h1 {
+    font-size: 4rem;
+  }
+}
+
+@include breakpoint($extra_large_screen) {
+  .splash-text h1 {
+    font-size: 4.5rem;
+  }
+}
+
+.faq-search {
+  z-index: 10;
+  background: $off-black;
+  @extend %flexbox;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar {
+  @extend %flexbox;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  background: whitesmoke;
+  border-radius: 3px;
+
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 1px;
+}
+
+@include breakpoint($small_screen) {
+  .search-bar {
+    margin-top: 30px;
+  }
+}
+
+.search-bar i {
+  display: block;
+  font-size: 1.7rem;
+  padding-right: 2px;
+  padding-top: 1px;
+}
+
+input[type=text] {
+  width: 150px;
+  height: 30px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  background: whitesmoke;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  border: none;
+  padding: 0 5px 0 5px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  color: $off-black;
+  @extend %header-text;
+  font-size: 1.1rem;
+}
+
+input[type=text]:focus {
+  width: 250px;
+  outline: none;
+}
+
+@include breakpoint($small_screen) {
+  input[type=text] {
+    width: 300px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  input[type=text]:focus {
+    width: 420px;
+  }
+}
+
+@include breakpoint($large_screen) {
+  input[type=text] {
+    width: 400px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+  input[type=text]:focus {
+    width: 520px;
+  }
+}
+
+input:-webkit-autofill {
+  border: none !important;
+  -webkit-text-fill-color: $off-black !important;
+  background-color: whitesmoke !important;
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+.faq-collapse {
+  grid-area: faq-collapse;
+  @extend %flexbox;
+  justify-content: flex-end;
+  padding: 20px 20px 10px 20px;
+  background: whitesmoke;
+  z-index: 2;
+
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 2.5px 0 0 0;
+}
+
+@include breakpoint($medium_screen) {
+  .faq-collapse {
+    padding: 10px 30px 10px 30px;
+  }
+}
+
+.faq-collapse i {
+  cursor: pointer;
+}
+.faq-collapse i:last-child {
+  margin-left: 10px;
+}
+
+
+.collapse-wrapper {
+  padding: 3px;
+  @extend %flexbox;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 3px;
+  border-color: $light-black;
+  border-radius: 3px;
+  font-size: 0.75rem;
+}
+
+@include breakpoint($medium_screen) {
+  .collapse-wrapper {
+    font-size: 1rem;
+  }
+}
+
+.faq-results {
+  grid-area: faq-results;
+  background: whitesmoke;
+  min-height: 400px;
+  @extend %header-text;
+  color: $off-black;
+  padding: 0 20px 60px 20px;
+  z-index: 2;
+}
+
+@include breakpoint($medium_screen) {
+  .faq-results {
+    padding: 0 30px 80px 30px;
+  }
+}
+
+faq-question {
+  margin-bottom: 20px;
+}
+
+faq-question:last-child {
+  margin-bottom: 0;
+}
+
+@include breakpoint($medium_screen) {
+  faq-question {
+    margin-bottom: 40px;
+  }
+}
+
+.faq-no-results {
+  @extend %flexbox;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.5rem;
+}
+
+.sidebar-left {
+  grid-area: sidebar-left;
+  z-index: 10;
+  background: whitesmoke;
+
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 2.5px 0 0 0;
+}
+
+.sidebar-right {
+  grid-area: sidebar-right;
+  z-index: 10;
+  background: whitesmoke;
+  border-style: solid;
+  border-color: $off-black;
+  border-width: 2.5px 0 0 0;
+}

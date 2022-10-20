@@ -1,0 +1,7 @@
+<div (click)="toggleAnswer()" class="question-header">
+    <h3 colorSearchedLetters [search]="search" [text]="question.q" [classToApply]="'searched'">{{question.q}}</h3>
+    <i *ngIf="answerVisible" class="fa fa-minus fa-lg" aria-hidden="true"></i>
+    <i *ngIf="!answerVisible" class="fa fa-plus fa-lg" aria-hidden="true"></i>
+</div>
+<p  #answerSection [style.maxHeight]="null"
+ colorSearchedLetters [search]="search" [text]="question.a" [classToApply]="'searched'" (foundMatch)="foundMatchInAnswer()">{{question.a}}</p>

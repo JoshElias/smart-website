@@ -1,0 +1,45 @@
+@import "../styles/styles.scss";
+
+
+
+html, body {
+    @extend %clear-margin;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: $top-nav-height auto 200px;
+    grid-template-areas:    "top-nav"
+                            "content"
+                            "footer";
+}
+
+@include breakpoint($small_screen) {
+    body {
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: $top-nav-height auto 170px;
+        grid-template-areas:    "top-nav"
+                                "content"
+                                "footer";
+    }
+}
+
+top-nav {
+    grid-area: top-nav;
+    z-index: 100;
+}
+
+content {
+    grid-area: content; 
+}
+
+footer {
+    grid-area: footer;
+
+    background-color: yellowgreen;
+}

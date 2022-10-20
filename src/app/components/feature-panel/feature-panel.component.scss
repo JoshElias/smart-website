@@ -1,0 +1,64 @@
+@import "../../../styles/styles.scss";
+:host {
+  @extend %flexbox;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  @extend %header-text;
+}
+
+.img-wrapper {
+  @extend %flexbox;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+}
+
+@include breakpoint($large_screen) {
+  .img-wrapper {
+    width: 120px;
+  }
+}
+
+img {
+  width: auto;
+  height: 130px;
+  cursor: pointer;
+}
+
+h1 {
+  margin-top: 30px;
+  height: 40px;
+  color: $smart-colour;
+  font-size: 1.3rem;
+}
+
+@include breakpoint($medium_screen) {
+    h1 {
+      height: 80px;
+      font-size: 1.5rem;
+    }
+  }
+
+@include breakpoint($large_screen) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+p {
+  height: 60px;
+  color: $light-black;
+}
+
+button.smart-button {
+  text-shadow: none;
+}
+
+button.smart-button:hover,
+button.smart-button:focus {
+  color: $light-black;
+  border-color: $light-black;
+  box-shadow: 0 0.5em 0.5em -0.4em $light-black;
+}

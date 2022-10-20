@@ -1,0 +1,35 @@
+<div class="faq-splash">
+    <img src="{{faqSplash}}">
+    <div class="splash-text">
+        <h1 class="splash-header">How can we help?</h1>
+        <div class="search-bar">
+            <input type="text" name="search" placeholder="Search FAQ"
+                (keyup)="onKey($event)" [value]="searchString">
+            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-left">
+
+</div>
+
+<div class="faq-collapse">
+    <div class="collapse-wrapper">
+    <i (click)="fs.collapseFAQ()" class="fa fa-compress fa-2x" aria-hidden="true"></i>
+    <i (click)="fs.expandFAQ()" class="fa fa-expand fa-2x" aria-hidden="true"></i>
+    </div>
+</div>
+
+<div class="faq-results">
+    <ng-container *ngFor="let question of (faqData | searchFAQ:searchString)">
+        <div *ngIf="question === -1" class="faq-no-results">
+            <h2>No FAQ Results</h2>
+        </div>
+        <faq-question *ngIf="question !== -1" [search]="searchString" [question]="question" [forceExpand]="forceExpand"></faq-question>
+    </ng-container>
+</div>
+
+<div class="sidebar-right">
+
+</div>

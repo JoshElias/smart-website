@@ -1,0 +1,279 @@
+@import "../../../styles/styles.scss";
+
+
+:host {
+    display: block;
+    margin-top: (-$top-nav-height);
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.features-splash {
+    @extend %flexbox;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-text {
+    z-index: 20;
+    position: absolute;
+    display: inline-block;
+    @extend %header-text;
+    @extend %clear-margin;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 2rem;
+    margin-top: 30px;
+}
+
+
+@include breakpoint($small_screen) {
+    .splash-text {
+        font-size: 3.2rem;
+    }
+}
+
+@include breakpoint($medium_screen) {
+    .splash-text {
+        font-size: 4rem;
+    }
+}
+
+@include breakpoint($large_screen) {
+    .splash-text {
+        font-size: 4.6rem;
+    }
+}
+
+
+.bg-wrapper {
+    width: 100%;
+    background: black;
+    z-index: 10;
+}
+
+.bgimg-1,
+.bgimg-2,
+.bgimg-3,
+.bgimg-4,
+.bgimg-5,
+.bgimg-6,
+.bgimg-7 {
+    z-index: 1;
+    position: relative;
+    opacity: 0.8;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.bgimg-1 {
+    min-height: 300px;
+    background-image: url("https://www.w3schools.com/howto/img_parallax.jpg");
+}
+
+@include breakpoint($small_screen) {
+    .bgimg-1 {
+        min-height: 400px;
+    }
+}
+
+.bgimg-2 {
+    min-height: 300px;
+    background-image: url("https://www.w3schools.com/howto/img_parallax2.jpg");
+}
+
+.bgimg-3 {
+    min-height: 300px;
+    background-image: url("https://www.w3schools.com/howto/img_parallax3.jpg");
+}
+
+.bgimg-4 {
+    min-height: 300px;
+}
+
+.bgimg-5 {
+    min-height: 300px;
+}
+.bgimg-6 {
+    min-height: 300px;
+}
+.bgimg-7 {
+    min-height: 300px;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+  }
+
+  .caption h1 {
+      @extend %header-text;
+      @extend %clear-margin;
+      opacity: 1;
+      color: whitesmoke;
+      text-shadow: 2px 2px 4px #000000;
+      z-index: 20;
+  }
+  
+
+  /* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-7, {
+        background-attachment: scroll;
+    }
+}
+
+.feature-section {
+    border-style: solid;
+    border-color: $off-black;
+    border-width: 2.5px 0 2.5px 0;
+}
+
+.feature-content {
+    @extend %header-text;
+    color: $off-black;
+
+    padding: 40px 20px 40px 20px;
+}
+
+@include breakpoint($small_screen) {
+    .feature-content {
+        padding: 40px 30px 40px 30px;
+    } 
+}
+
+@include breakpoint($medium_screen) {
+    .feature-content {
+        padding: 40px 0 40px 0;
+        width: 800px;
+        margin: 0 auto;
+    } 
+}
+
+@include breakpoint($large_screen) {
+    .feature-content {
+        padding: 60px 0 60px 0;
+        width: 1000px;
+    } 
+}
+
+@include breakpoint($extra_large_screen) {
+    .feature-content {
+        width: 1200px;
+    } 
+}
+
+
+.feature-header {
+    border-width: 0 0 5px 0;
+    border-style: solid;
+    border-color: $smart-colour;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+.feature-header h2 {
+    display: inline-block;
+    @extend %clear-margin;
+    display: inline-block;
+    font-size: 1.8rem;
+}
+
+@include breakpoint($small_screen) {
+    .feature-header h2 {
+        font-size: 2rem;
+    }
+}
+
+@include breakpoint($medium_screen) {
+    .feature-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@include breakpoint($large_screen) {
+    .feature-header h2 {
+        font-size: 2.6rem;
+    }
+}
+
+.feature-content p {
+    @extend %clear-margin;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+@include breakpoint($small_screen) {
+    .feature-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@include breakpoint($medium_screen) {
+    .feature-content p {
+        font-size: 1.2rem;
+    }
+}
+
+@include breakpoint($large_screen) {
+    .feature-content p {
+        margin-bottom: 40px;
+        font-size: 1.3rem;
+    }
+}
+
+
+.secondary-features {
+    @extend %flexbox;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@include breakpoint($medium_screen) {
+    .secondary-features {
+        justify-content: flex-start;
+    }
+}
+
+.secondary-feature {
+    overflow: hidden;
+    width: 200px;
+    max-height: 180px;
+    margin: 20px;
+    
+    border-style: solid;
+    border-color: $off-black;
+    border-width: 2.5px;
+    border-radius: 3px;
+}
+
+@include breakpoint($medium_screen) {
+    .secondary-feature {
+        margin: 20px 40px 20px 0px;
+    }
+}
+
+.secondary-feature h3 {
+    @extend %clear-margin;
+    min-height: 20px;
+    max-height: 40px;
+    font-size: 1.1rem;
+    padding: 7px;
+    background: $light-black;
+    color: $smart-colour;
+}
+
+.secondary-feature p {
+    @extend %clear-margin;
+    font-size: 0.8rem;
+    padding: 7px;
+    margin-bottom: 0;
+}

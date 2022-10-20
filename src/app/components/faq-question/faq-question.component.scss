@@ -1,0 +1,55 @@
+@import "../../../styles/styles.scss";
+
+
+:host {
+    display: block;
+    @extend %header-text;
+    color: $off-black;
+    overflow: hidden;
+}
+
+.question-header {
+    @extend %flexbox;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    color: $smart-colour;
+    background: $light-black;
+    border-radius: 3px;
+}
+
+.question-header:hover {
+    padding: 6px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: $smart-colour;
+}
+
+
+h3 {
+    @extend %clear-margin;
+    font-size: 1.2rem;
+    padding-right: 20px;
+}
+
+i {
+    display: block;
+}
+
+p { 
+    @extend %clear-margin;
+    padding-top: 20px;
+    transition: max-height 0.3s ease-out;
+    padding: 20px 10px 0 10px;
+}
+
+:host ::ng-deep .searched {
+    transition: all 3s ease-in 0s;
+  background: $smart-colour;
+  color: purple;
+  border-radius: 2px;
+  font-weight: 900;
+  zoom: 1.2;
+}
